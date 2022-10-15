@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <br/>
+      <div class="jumbotron">
+        <h1 class="display-4">Hey</h1>
+        <p class="lead">Create an account, then you can log in with it!</p>
+        <hr class="my-4">
+        {% if smessage %}
+          <div class="alert alert-success">
+            {{ smessage }}
+          </div>
+        {% endif %}
+        {% if umessage %}
+          <div class="alert alert-danger">
+            {{ umessage }}
+          </div>
+        {% endif %}
+        <form action="/signup" method="post">
+            <div class="form-group">
+            <label for="exampleInputEmail1">First Name</label>
+            <input type="text" class="form-control" name="firstName"  placeholder="Enter first name">
+            </div>
+            <div class="form-group">
+            <label for="exampleInputEmail1">Last Name</label>
+            <input type="text" class="form-control" name="lastName"  placeholder="Enter last name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" name="email"  placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label><br>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label><br>
+            </div>
+            <div class="form-group">
+                <label for="birthday">Date of Birth:</label>
+                <input type="date" id="birthday" name="birthday">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="securityQuestion1">Security Question 1</label><br>
+                <select name="securityQuestion1" id="securityQuestion1"  class="form-control" placeholder="">
+                    <option value="In what city were you born?">In what city were you born?</option>
+                    <option value="What is the name of your favorite pet?">What is the name of your favorite pet?</option>
+                    <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+                    <option value="What high school did you attend?">What high school did you attend?</option>
+                    <option value="What was the make of your first car?">What was the make of your first car?</option>
+                    <option value="What was the name of your elementary school?">What was the name of your elementary school?</option>
+                    <option value="What year was your father (or mother) born?">What year was your father (or mother) born?</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" class="form-control" name="securityQuestion1Answer" placeholder="Answer">
+            </div>
+            <div class="form-group">
+                <button type="submit" name="submit" class="btn btn-primary">Create</button>
+            </div>
+        </form>
+     </div>
+
+{% endblock %}
