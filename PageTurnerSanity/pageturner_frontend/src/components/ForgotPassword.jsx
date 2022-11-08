@@ -28,6 +28,8 @@ const ForgotPassword = () => {
             />
             <br />
         </div>
+
+        
       </div>
     </div>
   </div>
