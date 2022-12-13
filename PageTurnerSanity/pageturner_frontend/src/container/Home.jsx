@@ -8,6 +8,7 @@ import { client } from '../client';
 import logo from '../assets/logo.png';
 import Pins from './Pins';
 import { userQuery } from '../utils/data';
+import { CometChatUI } from "../CometChatWorkspace/src";
 
 const Home = () => {
 
@@ -56,6 +57,7 @@ const Home = () => {
         <Routes>
           <Route path="/user-profile/:userId" element={<UserProfile />} />
           <Route path="/*" element={<Pins user={user && user} />} />
+          <Route path="/chat" isPrivate element = {<div style={{ height:'800px' }}><CometChatUI /> </div>} />
         </Routes>
       </div>
     </div>
