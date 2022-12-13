@@ -53,6 +53,33 @@ export const categories = [
     }, 
   ];
 
+  export const pages = [
+    {
+      name: 'William Shakespeare',
+      image: 'https://www.biography.com/.image/t_share/MTE1ODA0OTcxNzgzMzkwNzMz/william-shakespeare-194895-1-402.jpg',
+    },
+    {
+      name: 'Agatha Christie',
+      image: 'https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTgwNTI5MDExMTk2MTc1NzIw/gettyimages-517399194.jpg',
+    },
+    {
+      name: 'J. K. Rowling',
+      image: 'https://media-cldnry.s-nbcnews.com/image/upload/newscms/2020_26/3155921/191219-j-k-rowling-2018-ac-845p.jpg',
+    },
+    {
+      name: 'Roald Dahl',
+      image: 'https://cdn.britannica.com/91/133791-050-0BA517B1/Roald-Dahl-photograph-Carl-Van-Vechten-1954.jpg?w=400&h=300&c=crop',
+    },
+    {
+      name: 'Dan Brown',
+      image: 'https://pyxis.nymag.com/v1/imgs/0b7/95d/a10998e9382527a9814041f84d4a6d1334-28-dan-brown.rsquare.w330.jpg',
+    },
+    {
+      name: 'Khaled Hosseini',
+      image: 'https://asiastore.org/wp-content/uploads/2014/10/khaled-headshot1-300x300.jpg',
+    }, 
+  ];
+
   export const feedQuery = `*[_type == "pin"] | order(_createdAt desc) {
     image{
       asset->{
@@ -140,7 +167,7 @@ export const categories = [
   };
   
   export const searchQuery = (searchTerm) => {
-    const query = `*[_type == "pin" && title match '${searchTerm}*' || category match '${searchTerm}*' || about match '${searchTerm}*']{
+    const query = `*[_type == "pin" && title match '${searchTerm}*' || category match '${searchTerm}*' || about match '${searchTerm}*' || postHost match '${searchTerm}*']{
           image{
             asset->{
               url
@@ -165,6 +192,13 @@ export const categories = [
     return query;
   };
   
+  export const UserSearchQuery = (searchTerm) => {
+    const query = `*[_type == "user" && userName match '${searchTerm}*']{
+      _id
+    }`;
+    return query;
+  };
+
   export const userQuery = (userId) => {
     const query = `*[_type == "user" && _id == '${userId}']`;
     return query;
