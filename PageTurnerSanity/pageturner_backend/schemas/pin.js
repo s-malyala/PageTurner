@@ -37,6 +37,11 @@ export default {
         type: 'string',
       },
       {
+        name: 'postHost',
+        title: 'PostHost',
+        type: 'string',
+      },
+      {
         name: 'postedBy',
         title: 'PostedBy',
         type: 'postedBy',
