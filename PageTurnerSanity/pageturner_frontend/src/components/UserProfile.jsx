@@ -44,6 +44,10 @@ const UserProfile = () => {
     }
   }, [text, userId]);
 
+  const openChat = () =>{
+    //navigate('/', { replace: true });
+  }
+
   const logout = () => {
     localStorage.clear();
 
@@ -110,10 +114,10 @@ const UserProfile = () => {
             }}
             className={`${activeBtn === 'saved' ? activeBtnStyles : notActiveBtnStyles}`}
           >
-            Saved
+            Liked
           </button>
         </div>
-
+          
         <div className="px-2">
           <MasonryLayout pins={pins} />
         </div>

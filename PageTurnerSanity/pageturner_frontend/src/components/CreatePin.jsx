@@ -54,6 +54,7 @@ const CreatePin = ({ user }) => {
             _ref: imageAsset?._id,
           },
         },
+        postHost: user.userName,
         userId: user._id,
         postedBy: {
           _type: 'postedBy',

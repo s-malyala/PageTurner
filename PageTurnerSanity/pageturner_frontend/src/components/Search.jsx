@@ -17,7 +17,8 @@ const Search = ({ searchTerm }) => {
         setPins(data);
         setLoading(false);
       });
-    } else {
+    } 
+    else {
       client.fetch(feedQuery).then((data) => {
         setPins(data);
         setLoading(false);

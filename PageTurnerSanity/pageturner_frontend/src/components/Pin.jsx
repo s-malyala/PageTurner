@@ -80,7 +80,7 @@ const Pin = ({ pin }) => {
                 </div>
                 {alreadySaved?.length !== 0 ? (
                   <button type="button" className="bg-blue-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none">
-                    {pin?.save?.length}  Saved
+                    {pin?.save?.length}  Liked
                   </button>
                 ) : (
                   <button
@@ -91,7 +91,7 @@ const Pin = ({ pin }) => {
                     type="button"
                     className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
                   >
-                    {pin?.save?.length}   {savingPost ? 'Saving' : 'Save'}
+                    {pin?.save?.length}   {savingPost ? 'Liking' : 'Like'}
                   </button>
                 )}
               </div>

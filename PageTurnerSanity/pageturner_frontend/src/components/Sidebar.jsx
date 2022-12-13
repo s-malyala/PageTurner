@@ -4,11 +4,38 @@ import { RiHomeFill } from 'react-icons/ri';
 import { IoIosArrowForward } from 'react-icons/io';
 import logo from '../assets/logo.png';
 import { categories } from '../utils/data';
+import { pages } from '../utils/data';
+import { useParams, useNavigate, BrowserRouter } from 'react-router-dom';
+import Iframe from 'react-iframe'
+
 
 const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
 const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black  transition-all duration-200 ease-in-out capitalize';
 
 const Sidebar = ({ closeToggle, user }) => {
+  
+  const navigate = useNavigate();
+
+  const showWilliamShakespeare = () =>{
+    navigate('/williamshakespeare', { replace: true });
+  }
+
+  const showAgathaChristie = () =>{
+    navigate('/agathachristie', { replace: true });
+  }
+
+  const showJKRowling = () =>{
+    navigate('/jkrowling', { replace: true });
+  }
+
+  const showDanBrown = () =>{
+    navigate('/danbrown', { replace: true });
+  }
+
+  const showTopVideos = () =>{
+    navigate('/topvideos', { replace: true });
+  }
+
   const handleCloseSidebar = () => {
     if (closeToggle) closeToggle(false);
   };
@@ -33,7 +60,11 @@ const Sidebar = ({ closeToggle, user }) => {
             <RiHomeFill />
             Home
           </NavLink>
-          <h3 className="mt-2 px-5 text-base 2xl:text-xl">Genre</h3>
+            <div className='justify-center items-center pl-4'>
+              <button className="bg-green-200 justify-center items-center h-10 w-40 m-2 p-2 rounded-lg outline-none">        
+                <h2 className='font-extrabold'>Genres</h2>
+              </button>
+            </div>
           {categories.slice(0, categories.length).map((category) => (
             <NavLink
               to={`/category/${category.name}`}
@@ -45,6 +76,52 @@ const Sidebar = ({ closeToggle, user }) => {
               {category.name}
             </NavLink>
           ))}
+            <div className='justify-center items-center pl-4'>
+              <button className="bg-green-200 justify-center items-center h-10 w-40 m-2 p-2 rounded-lg outline-none">        
+                <h2 className='font-extrabold'>Top Pages</h2>
+              </button>
+            </div>
+          
+          <form onSubmit={showWilliamShakespeare} >
+            <div className='justify-center items-center pl-4'>
+              <button className="bg-mainColor justify-center items-center h-10 w-40 m-2 p-2 rounded-lg cursor-pointer outline-none">        
+                Shakespeare
+              </button>
+            </div>  
+          </form>
+
+          <form onSubmit={showAgathaChristie} >
+            <div className='justify-center items-center pl-4'>
+              <button className="bg-mainColor justify-center items-center h-10 w-40 m-2 p-2 rounded-lg cursor-pointer outline-none">        
+                Agatha Christie
+              </button>
+            </div>  
+          </form>
+
+          <form onSubmit={showJKRowling} >
+            <div className='justify-center items-center pl-4'>
+              <button className="bg-mainColor justify-center items-center h-10 w-40 m-2 p-2 rounded-lg cursor-pointer outline-none">        
+                J.K. Rowling
+              </button>
+            </div>  
+          </form>
+
+          <form onSubmit={showDanBrown} >
+            <div className='justify-center items-center pl-4'>
+              <button className="bg-mainColor justify-center items-center h-10 w-40 m-2 p-2 rounded-lg cursor-pointer outline-none">        
+                Dan Brown
+              </button>
+            </div>  
+          </form>
+
+          <form onSubmit={showTopVideos} >
+            <div className='justify-center items-center pl-4'>
+              <button className="bg-red-200 justify-center items-center h-10 w-40 m-2 p-2 rounded-lg cursor-pointer outline-none">        
+                <h2 className='font-extrabold'>Top Videos</h2>
+              </button>
+            </div>  
+          </form>
+
         </div>
       </div>
       {user && (
